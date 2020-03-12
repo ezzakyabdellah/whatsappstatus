@@ -1,0 +1,54 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Meal</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+  <ion-list class="background">
+
+    <ion-item *ngFor="let itm of foods" no-lines class="trp1 pad"> 
+      <ion-card class="pad" class="trp">
+        <!-- <img src="assets/imgs/logot.png" class="card-img"/> -->
+        <ion-card-content >
+          <ion-card-title class="line-break ititle">
+            {{itm.properties.status}}
+            </ion-card-title>
+        </ion-card-content>
+
+        <ion-grid class="trp">
+            <ion-row>
+              <ion-col>
+                <button ion-button icon-only (click)="regularShare(itm)" color="primary" clear>
+              <ion-icon class="share-icon" name="share"></ion-icon>
+            </button>
+              </ion-col>
+              <ion-col>
+                <button ion-button icon-only (click)="whatsappShare(itm)" color="primary" clear>
+              <ion-icon class="share-icon" name="logo-whatsapp"></ion-icon>
+            </button>
+              </ion-col>
+              <ion-col>
+                <button ion-button icon-only (click)="facebookShare(itm)" color="primary" clear>
+              <ion-icon  class="share-icon" name="logo-facebook"></ion-icon>
+            </button>
+              </ion-col>
+              <ion-col>
+                <button ion-button icon-only (click)="twitterShare(itm)" color="primary" clear>
+              <ion-icon class="share-icon" name="logo-twitter"></ion-icon>
+            </button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+      </ion-card>
+    </ion-item>
+
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-list>
+
+</ion-content>
